@@ -1,0 +1,145 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    font-family: 'Poppins', sans-serif;
+    @apply dark:bg-stone-900 dark:text-white;
+
+}
+
+.page_title {
+    @apply text-4xl pt-14 mb-4 text-center;
+}
+
+.center {
+    @apply flex items-center justify-center;
+}
+
+.main {
+    // height: calc(100vh - 4rem);
+    // overflow: hidden;
+
+    // &>div:not(.gutter) {
+    //     @apply py-2 mx-2;
+    // }
+}
+
+a,
+.link {
+    @apply no-underline text-sky-400;
+}
+
+button,
+[type='button'],
+[type='reset'],
+[type='submit'] {
+    all: unset;
+}
+
+.box{
+    @apply p-4 border bg-primary-50 dark:bg-stone-800 border-stone-300 dark:border-stone-600 inline-block rounded-lg dark:shadow-black shadow-lg;
+
+    &>h3{
+        @apply text-xl mb-3;
+    }
+
+    &>h4{
+        @apply text-lg mb-2;
+    }
+
+    hr{
+        @apply my-3 border-stone-400;
+    }
+}
+
+.btn {
+    // @extend .btn_animate;
+    // @apply py-1.5 px-2 flex items-center justify-center gap-3 transition duration-300 cursor-pointer;
+
+    @apply border-2 rounded py-1 px-2.5 flex items-center justify-center gap-3 transition duration-300 shadow shadow-black cursor-pointer hover:shadow-sm;
+    // @apply border-primary-400 text-primary-400 bg-transparent hover:bg-primary-400 hover:text-neutral-900;
+
+    &_filled {
+        @extend .btn;
+        @apply bg-primary-400 text-neutral-900 hover:bg-primary-400 hover:text-neutral-900;
+    }
+
+}
+
+.input {
+    @apply p-2 bg-neutral-800 text-neutral-100 border border-neutral-500 rounded shadow shadow-black focus:outline-none focus:border-neutral-400 focus:bg-neutral-700 focus:shadow-lg;
+    // @apply p-2 bg-transparent text-neutral-100;
+}
+
+.chat_box {
+    position: relative;
+
+    // &::after {
+    //     @apply content-[''] absolute h-12 w-full bottom-[100%] bg-gradient-to-b from-transparent to-primary-900;
+    // }
+}
+
+.MuiInputBase-input {
+    @apply px-10;
+}
+
+.gradient_1,
+.gradient_1[type='submit'] {
+    background: linear-gradient(135deg, #5f03f4, #f441a5, #b81fff, #5f03f4);
+}
+
+.gradient_text {
+    @extend .gradient_1;
+    background-size: 300%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    // display: inline;
+    filter: brightness(1.2);
+}
+
+
+
+.gradient_btn,
+.gradient_btn[type='submit'] {
+    @extend .gradient_1;
+    text-shadow: rgba(140, 0, 255, 0.9) 0px 0px 20px;
+    background-size: 400%;
+    box-sizing: border-box;
+    @apply px-3 py-1.5 w-full rounded-md flex items-center justify-center gap-4 text-neutral-100 transition duration-300;
+    cursor: pointer;
+
+    &:hover {
+        box-shadow: 0px 0px 15px 1px rgba(155, 0, 194, 0.9);
+        animation: animate 8s ease infinite;
+        transition: box-shadow 0.4s;
+        border: none;
+        background: linear-gradient(90deg, #5f03f4, #f441a5, #b81fff, #5f03f4);
+        background-size: 400%;
+
+        &:before {
+            filter: blur(20px);
+            opacity: 1;
+            animation: animate 8s linear infinite;
+        }
+    }
+
+    @keyframes animate {
+        0% {
+            background-position: 0%;
+        }
+
+        100% {
+            background-position: 400%;
+        }
+    }
+}
+
+.btn-hvr {
+    transition: all 0.3s;
+
+    &:hover {
+        @extend .gradient_btn;
+    }
+}
