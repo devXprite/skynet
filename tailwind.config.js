@@ -13,7 +13,9 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: {...MuiColors.blue, DEFAULT: MuiColors.blue[600]},
+        primary: {...colors.blue, DEFAULT: colors.blue[500]},
+        // primary: {...MuiColors.blue, DEFAULT: MuiColors.blue[600]},
+        // ...MuiColors
       }
     },
   },

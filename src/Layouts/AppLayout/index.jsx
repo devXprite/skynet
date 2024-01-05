@@ -1,10 +1,9 @@
 import { Outlet } from "react-router-dom";
 import { Suspense } from "react";
-import Loader from "../components/Loader";
-import SideBar from "../components/SideBar";
-import NavBar from "../components/NavBar";
+import NavBar from "../../components/NavBar";
+import SideBar from "../../components/SideBar";
 
-const MainLayout = () => {
+const AppLayout = () => {
     return (
         <>
             <div className="min-h-screen grid grid-cols-1 md:grid-cols-[20rem_1fr] w-full relative">
@@ -22,4 +21,4 @@ const MainLayout = () => {
     );
 }
 
-export default MainLayout;
+export default AppLayout;

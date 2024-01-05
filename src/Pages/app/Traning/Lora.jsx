@@ -1,17 +1,11 @@
-import { Box, Button, Checkbox, FormControlLabel, Paper, Slider, Tab, Tabs, TextField } from "@mui/material";
+import { Box, Button, Checkbox, FormControlLabel, Paper, Slider, TextField } from "@mui/material";
 import { useState } from "react";
 
-const Traning = () => {
+const Lora = () => {
     const [selectedTab, setSelectedTab] = useState(false)
 
     return (
         <div>
-            <div className="flex gap-6 text-lg border-b mt-2 dark:border-stone-500">
-                <p className="py-1.5 px-4 rounded-t-lg border border-b-0 dark:border-stone-500 bg-primary dark:bg-primary-200 text-white dark:text-black">Train Lora</p>
-                <p className="py-1.5 px-4 rounded-t-lg border border-b-0 dark:border-stone-500">Train Lora</p>
-                <p className="py-1.5 px-4 rounded-t-lg border border-b-0 dark:border-stone-500">Train Lora</p>
-            </div>
-
             <div className="grid grid-cols-2 gap-12">
 
                 <div className="flex flex-col py-6 gap-6">
@@ -37,13 +31,15 @@ const Traning = () => {
 
                     <div className="grid grid-cols-[2fr_1fr] gap-4">
                         <div className="box">
-                            <h4>Lora Rank</h4>
+                            <div className="flex items-center justify-between"><h4 className="mr-auto">Lora Rank</h4><TextField size="small" placeholder="1" className="w-10" /></div>
                             <Slider defaultValue={30} />
                             <hr />
-                            <h4>Lora Alpha</h4>
+
+                            <div className="flex items-center justify-between"><h4 className="mr-auto">Lora Alpha</h4><TextField size="small" placeholder="1" className="w-10" /></div>
                             <Slider defaultValue={70} />
                             <hr />
-                            <h4>Lora Batch Size</h4>
+
+                            <div className="flex items-center justify-between"><h4 className="mr-auto">Lora Batch Size</h4><TextField size="small" placeholder="1" className="w-10" /></div>
                             <Slider defaultValue={10} />
                         </div>
 
@@ -111,4 +107,4 @@ const Traning = () => {
     );
 }
 
-export default Traning;
+export default Lora;

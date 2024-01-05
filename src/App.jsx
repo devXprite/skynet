@@ -6,36 +6,24 @@ import { ThemeProvider, createTheme } from '@mui/material';
 import { Toaster } from 'react-hot-toast';
 
 import Home from './Pages/Home';
-import AuthLayout from './Layouts/AuthLayout';
-import SignIn from './Pages/auth/SignIn';
-import SignUp from './Pages/auth/SignUp';
-import CreateAccount from './Pages/auth/CreateAccount';
-import Forgot from './Pages/auth/Forgot';
-import Reset from './Pages/auth/Reset';
-import NoPage from './Pages/NoPage';
-import Contact from './Pages/Contact';
 import RootLayout from './Layouts/RootLayout';
-import MainLayout from './Layouts/MainLayout';
-import Traning from './Pages/Dashboard/Traning';
+import AppLayout from './Layouts/AppLayout';
+// import Traning from './Pages/app/Traning';
 import { useEffect } from 'react';
 import { useState } from 'react';
+// import Access from './Pages/app/Access';
+import NoPage from './Pages/NoPage';
+import TrainingLayout from './Layouts/AppLayout/TrainingLayout';
+import Lora from './Pages/app/Traning/Lora';
 
 
 
 
 function App() {
+  const [mode, setMode] = useState('light')
+  useEffect(() => { document.documentElement.classList.add(mode) }, [mode])
+  const theme = createTheme({ palette: { mode: mode }, });
 
-  const [mode, setMode] = useState('dark')
-
-  useEffect(() => {
-    document.documentElement.classList.add(mode);
-  }, [mode])
-
-  const theme = createTheme({
-    palette: {
-      mode: mode
-    },
-  });
 
   return (
     <>
@@ -46,25 +34,16 @@ function App() {
             <Routes>
               <Route path='/' element={<RootLayout />} >
                 <Route index element={<Home />} />
-
-                <Route path='dashboard' element={<MainLayout />}>
-                  <Route path='traning' element={<Traning />} />
+                <Route path='app' element={<AppLayout />}>
+                  <Route path='traning' element={<TrainingLayout />} >
+                    <Route path='lora' element={<Lora />} />
+                  </Route>
+                  {/* <Route path='traning' element={<Traning />} />
+                  <Route path='access' element={<Access />} /> */}
                 </Route>
 
-                <Route path='contact' element={<Contact />} />
                 <Route path='*' element={<NoPage />} />
               </Route>
-
-
-              <Route path='/auth' element={<AuthLayout />}>
-                <Route index element={<SignIn />} />
-                <Route path='signin' element={<SignIn />} />
-                <Route path='signup' element={<SignUp />} />
-                <Route path='create-account' element={<CreateAccount />} />
-                <Route path='forgot' element={<Forgot />} />
-                <Route path='reset-password' element={<Reset />} />
-              </Route>
-
             </Routes>
           </Suspense>
         </BrowserRouter>
