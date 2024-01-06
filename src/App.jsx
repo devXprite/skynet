@@ -8,14 +8,15 @@ import { Toaster } from 'react-hot-toast';
 import Home from './Pages/Home';
 import RootLayout from './Layouts/RootLayout';
 import AppLayout from './Layouts/AppLayout';
-// import Traning from './Pages/app/Traning';
 import { useEffect } from 'react';
 import { useState } from 'react';
-// import Access from './Pages/app/Access';
 import NoPage from './Pages/NoPage';
 import TrainingLayout from './Layouts/AppLayout/TrainingLayout';
 import Lora from './Pages/app/Traning/Lora';
 import Perplexity from './Pages/app/Traning/Perplexity';
+import NoteBookLayout from './Layouts/AppLayout/NoteBookLayout';
+import Raw from './Pages/app/Notebook/Raw';
+import MarkDown from './Pages/app/Notebook/MarkDown';
 
 
 
@@ -36,10 +37,21 @@ function App() {
               <Route path='/' element={<RootLayout />} >
                 <Route index element={<Home />} />
                 <Route path='app' element={<AppLayout />}>
+               
                   <Route path='traning' element={<TrainingLayout />} >
                     <Route path='lora' element={<Lora />} />
                     <Route path='perplexity' element={<Perplexity />} />
                   </Route>
+
+                  <Route path='notebook' element={<NoteBookLayout />} >
+                    <Route path='raw' element={<Raw />} />
+                    <Route path='markdown' element={<MarkDown />} />
+
+                    <Route path='*' element={<NoPage />} />
+                  </Route>
+
+
+
                   {/* <Route path='traning' element={<Traning />} />
                   <Route path='access' element={<Access />} /> */}
                 </Route>

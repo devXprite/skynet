@@ -59,7 +59,7 @@ button,
 
 
     h3,h4,h5{
-        @apply text-black/70;
+        @apply text-black/70 dark:text-white/80;
     }
 
     h3 {
@@ -78,12 +78,16 @@ button,
 .wrapper {
     @apply p-4 flex flex-col gap-6 bg-transparent border border-stone-300 dark:border-stone-600 rounded-lg dark:shadow-black shadow-lg;
     
-    &.col{
+    &.no-bg {
+        @apply bg-transparent border-none shadow-none p-0;
+    }
+
+    &>.content{
         @apply grid grid-cols-2 gap-6;
     }
 
     &>h2 {
-        @apply text-2xl mb-3 text-black/70;
+        @apply text-2xl mb-3 text-black/80 dark:text-white/90;
     }
 }
 

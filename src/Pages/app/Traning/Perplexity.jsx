@@ -1,38 +1,84 @@
 import { TextField, Slider, Button } from "@mui/material";
+import PageBody from "../../../components/PageBody";
+
+
+const pageData = {
+    wrappers: [
+        {
+            boxes: [
+                {
+                    span: 2,
+                    fields: [
+                        {
+                            name: 'Models',
+                            type: 'select',
+                            label: 'Models',
+                            options: ['Model 1', 'Model 2', 'Model 3'],
+                            defaultValue: 'Model 1'
+                        },
+                    ]
+                },
+                {
+                    span: 2,
+                    fields: [
+                        {
+                            name: 'Input DataSet',
+                            type: 'select',
+                            label: 'Input DataSet',
+                            options: ['DataSet 1', 'DataSet 2', 'DataSet 3'],
+                            defaultValue: 'DataSet 1'
+                        },
+                    ]
+                },
+                {
+                    span: 2,
+                    fields: [
+                        {
+                            name: 'Stride',
+                            type: 'slider',
+                            label: 'Stride',
+                            defaultValue: 30
+                        },
+                    ]
+                },
+                {
+                    span: 2,
+                    fields: [
+                        {
+                            name: 'Max Length',
+                            type: 'slider',
+                            label: 'Max Length',
+                            defaultValue: 70
+                        },
+                    ]
+                },
+            ],
+            action: [
+                {
+                    name: 'Evaluate Loaded Model',
+                    color: 'primary'
+                },
+                {
+                    name: 'Evaluate Selected Model',
+                    color: 'primary'
+                },
+                {
+                    name: 'Interrupt',
+                    color: 'error'
+                },
+            ]
+        },
+    ]
+}
 
 const Perplexity = () => {
+
     return (
         <div className="page">
-            <div className="wrapper col border-none shadow-none">
-
-                <div className="box col-span-2">
-                    <h4>Models</h4>
-                    <TextField size="small" fullWidth select />
-                </div>
-
-                <div className="box col-span-2">
-                    <h4>Input DataSet</h4>
-                    <TextField size="small" fullWidth select />
-                </div>
-
-                <div className="box">
-                    <div className="flex items-center justify-between"><h4 className="mr-auto">Stride</h4><TextField size="small" placeholder="1" className="w-10" /></div>
-                    <Slider defaultValue={30} />
-                </div>
-
-                <div className="box">
-                    <div className="flex items-center justify-between"><h4 className="mr-auto">Max Length</h4><TextField size="small" placeholder="1" className="w-10" /></div>
-                    <Slider defaultValue={70} />
-                </div>
-
-                <div className="btn-container col-span-2">
-                    <Button variant="contained" >Evaluate Loaded Model</Button>
-                    <Button variant="contained" >Evaluate Selected Model</Button>
-                    <Button variant="contained" >Interrupt</Button>
-                </div>
-            </div>
+            <PageBody pageData={pageData} />
         </div>
     );
+
 }
 
 export default Perplexity; 
