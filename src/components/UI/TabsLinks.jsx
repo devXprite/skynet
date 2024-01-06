@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
+import { useLocation } from 'react-router-dom';
 
 const TabLinks = ({ tabsList }) => {
+    const location = useLocation();
     const { pathname } = location;
 
     return (

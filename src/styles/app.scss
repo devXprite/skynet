@@ -4,26 +4,19 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    @apply dark:bg-stone-900 dark:text-white;
+    @apply text-black  dark:bg-stone-900 dark:text-white;
 
 }
 
-.page_title {
-    @apply text-4xl pt-14 mb-4 text-center;
+.page {
+    @apply grid grid-cols-2 gap-12 pt-10 items-start;
 }
 
 .center {
     @apply flex items-center justify-center;
 }
 
-.main {
-    // height: calc(100vh - 4rem);
-    // overflow: hidden;
-
-    // &>div:not(.gutter) {
-    //     @apply py-2 mx-2;
-    // }
-}
+.main {}
 
 a,
 .link {
@@ -64,8 +57,9 @@ button,
         @apply bg-transparent;
     }
 
-    &>h2 {
-        @apply text-2xl mb-3;
+
+    h3,h4,h5{
+        @apply text-black/70;
     }
 
     h3 {
@@ -77,6 +71,22 @@ button,
     }
 
     hr {
-        @apply my-3 border-stone-400;
+        @apply my-5 border-black/20;
     }
+}
+
+.wrapper {
+    @apply p-4 flex flex-col gap-6 bg-transparent border border-stone-300 dark:border-stone-600 rounded-lg dark:shadow-black shadow-lg;
+    
+    &.col{
+        @apply grid grid-cols-2 gap-6;
+    }
+
+    &>h2 {
+        @apply text-2xl mb-3 text-black/70;
+    }
+}
+
+.btn-container {
+    @apply flex justify-end items-center gap-8 px-1 py-2;
 }

@@ -15,6 +15,7 @@ import { useState } from 'react';
 import NoPage from './Pages/NoPage';
 import TrainingLayout from './Layouts/AppLayout/TrainingLayout';
 import Lora from './Pages/app/Traning/Lora';
+import Perplexity from './Pages/app/Traning/Perplexity';
 
 
 
@@ -37,6 +38,7 @@ function App() {
                 <Route path='app' element={<AppLayout />}>
                   <Route path='traning' element={<TrainingLayout />} >
                     <Route path='lora' element={<Lora />} />
+                    <Route path='perplexity' element={<Perplexity />} />
                   </Route>
                   {/* <Route path='traning' element={<Traning />} />
                   <Route path='access' element={<Access />} /> */}

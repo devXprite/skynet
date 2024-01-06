@@ -1,14 +1,12 @@
-import { Box, Button, Checkbox, FormControlLabel, Paper, Slider, TextField } from "@mui/material";
+import { Box, Button, Checkbox, FormControlLabel, MenuItem, Paper, Slider, TextField } from "@mui/material";
 import { useState } from "react";
 
 const Lora = () => {
     const [selectedTab, setSelectedTab] = useState(false)
 
     return (
-        <div>
-            <div className="grid grid-cols-2 gap-12">
-
-                <div className="flex flex-col py-6 gap-6">
+            <div className="page">
+                <div className="flex flex-col gap-6">
                     <div className="box">
                         <h3>Upload A file</h3>
                         <Button variant="contained" fullWidth>Upload File</Button >
@@ -61,49 +59,93 @@ const Lora = () => {
                     </div>
                 </div>
 
-                <div>
-                    <div className="flex gap-6 text-lg border-b my-5 dark:border-stone-500">
-                        <p className="py-1.5 px-4 rounded-t-lg border border-b-0 dark:border-stone-500 bg-primary dark:bg-primary-200 text-white dark:text-black">Train Lora</p>
-                        <p className="py-1.5 px-4 rounded-t-lg border border-b-0 dark:border-stone-500">Train Lora</p>
+
+                <div className="wrapper">
+                    <h2>Formetted Datasets</h2>
+                    <div className="box">
+                        <h4>Date Format</h4>
+                        <TextField
+                            fullWidth
+                            size="small"
+                            label="File Name"
+                        />
                     </div>
 
-                    <div className="flex flex-col gap-6 p-4 box !bg-transparent">
-                        <div className="box w-full">
-                            <h4>Date Format</h4>
+                    <div className="box">
+                        <h4>DataSet</h4>
+                        <TextField
+                            fullWidth
+                            size="small"
+                            label="File Name"
+                        />
+                    </div>
+
+                    <div className="box">
+                        <h4>Evaluation DataSet</h4>
+                        <TextField
+                            fullWidth
+                            size="small"
+                            label="File Name"
+                        />
+                    </div>
+
+                    <div className="btn-container">
+                        <Button color="warning" variant="contained">Upload</Button >
+                        <Button color="success" variant="contained">Fien Tuning</Button >
+                    </div>
+
+                </div>
+
+                <div className="wrapper">
+                    <h2>Raw Text File</h2>
+
+                    <div className="box">
+                        <h3>Text File</h3>
+                        <TextField
+                            select
+                            fullWidth
+                            size="small"
+                        >
+                            <MenuItem value='none'>None</MenuItem>
+                        </TextField>
+                    </div>
+
+                    <div className="grid grid-cols-2 gap-4">
+                        <div className="box">
+                            <div className="flex items-center justify-between"><h4 className="mr-auto">OverLap Length</h4><TextField size="small" placeholder="1" className="w-10" /></div>
+                            <Slider defaultValue={30} />
+                            <hr />
+
+                            <div className="flex items-center justify-between"><h4 className="mr-auto">Prefer New Line Cut Length</h4><TextField size="small" placeholder="1" className="w-10" /></div>
+                            <Slider defaultValue={70} />
+                            <hr />
+                        </div>
+
+                        <div className="box">
+                            <h4>Hard Cut String</h4>
                             <TextField
                                 fullWidth
                                 size="small"
-                                label="File Name"
+                                placeholder="Linear"
                             />
-                        </div>
-                        <div className="box w-full">
-                            <h4>DataSet</h4>
+                            <hr className="!my-6" />
+                            <h4>Ignore Small Blocks</h4>
                             <TextField
                                 fullWidth
                                 size="small"
-                                label="File Name"
-                            />
-
-                        </div>
-
-                        <div className="box w-full">
-                            <h4>Evaluation DataSet</h4>
-                            <TextField
-                                fullWidth
-                                size="small"
-                                label="File Name"
+                                placeholder="Linear"
                             />
                         </div>
+                    </div>
 
-                        <div className="flex justify-end gap-8">
-                            <Button color="warning" variant="contained">Upload</Button >
-                            <Button color="success" variant="contained">Fien Tuning</Button >
-                        </div>
+
+                    <div className="btn-container">
+                        <Button color="success" variant="contained">Start Lora traning</Button>
+                        <Button color="warning" variant="contained">Inruppet</Button>
                     </div>
 
                 </div>
             </div>
-        </div>
     );
 }
 
